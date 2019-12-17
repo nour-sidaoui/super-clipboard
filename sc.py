@@ -25,7 +25,7 @@ def add_new_clips():
     global copied_items
     max_slots = max_slots_scale.get()
 
-    my_canvas.grid(row=1, column=0, padx=5, pady=2)  # packing here to avoid display if clipboard is empty
+    my_canvas.grid(row=1, column=0, padx=5, pady=3)  # packing here to avoid display if clipboard is empty
 
     if len(copied_items) > max_slots:
         copied_items = copied_items[-max_slots:]
@@ -33,16 +33,16 @@ def add_new_clips():
     replace_with_new_canvas()
     bgc = 0
     for c in reversed(copied_items):
-        item = Label(my_canvas,
-                     width=50,
-                     text=c,
-                     padx=5,
-                     pady=5,
-                     relief=RAISED,
-                     wraplength=450,
-                     bg=bg_colors[bgc],
-                     fg='white',
-                     justify=LEFT)
+        item = Button(my_canvas,
+                      width=50,
+                      text=c,
+                      padx=5,
+                      pady=5,
+                      relief=RAISED,
+                      wraplength=450,
+                      bg=bg_colors[bgc],
+                      fg='black',
+                      justify=LEFT)
         item.pack(fill=X, side=BOTTOM)
         item.bind("<Button-1>", lambda event, label_content=item: on_click(label_content))
         bgc += 1
@@ -94,10 +94,10 @@ def on_top():
 if __name__ == '__main__':
     root = Tk()
     root.title('Super Clipboard')
-    root.config(bg='gray35')
+    root.config(bg='gray70')
     root.resizable(False, False)
 
-    frame1 = Frame(root, borderwidth=5, relief=SUNKEN)
+    frame1 = Frame(root, borderwidth=5, relief=GROOVE, bd=1)
     frame1.grid_rowconfigure(0, weight=1)
     frame1.grid_columnconfigure(0, weight=1)
 
@@ -122,13 +122,14 @@ if __name__ == '__main__':
                             length=140)
 
     var = BooleanVar()
+
     on_top = Checkbutton(frame1,
                          text="Keep on top ",
-                         variable=var,
+                         # variable=var,
                          command=on_top)
 
     # packing
-    frame1.grid(row=0, column=0, sticky=EW, padx=5, pady=5)
+    frame1.grid(row=0, column=0, sticky=EW, padx=5, pady=2)
     clear_mem.grid(row=0, column=0, pady=5)
     clear_last.grid(row=1, column=0, pady=5)
     max_slots_scale.grid(row=0, column=1, padx=15, pady=5, rowspan=2)
