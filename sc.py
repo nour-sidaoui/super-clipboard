@@ -2,7 +2,6 @@ from tkinter import *
 import pyperclip
 
 copied_items = []
-bg_colors = ['gray25', 'gray30', 'gray35', 'gray40', 'gray45', 'gray50', 'gray55', 'gray60']
 
 
 def detect_copy():
@@ -31,32 +30,29 @@ def add_new_clips():
         copied_items = copied_items[-max_slots:]
 
     replace_with_new_canvas()
-    bgc = 0
     for c in reversed(copied_items):
         item = Button(my_canvas,
                       width=50,
                       text=c,
                       padx=5,
                       pady=5,
-                      relief=RAISED,
+                      relief=GROOVE,
                       wraplength=450,
-                      bg=bg_colors[bgc],
                       fg='black',
                       justify=LEFT)
         item.pack(fill=X, side=BOTTOM)
         item.bind("<Button-1>", lambda event, label_content=item: on_click(label_content))
-        bgc += 1
 
     if len(copied_items) == 0:
         item = Label(my_canvas,
                      text='- Clipboard is empty -',
                      font='Calibri 12 italic',
-                     width=50,
+                     width=51,
                      padx=5,
                      pady=5,
-                     relief=RAISED,
-                     bg='gray25',
-                     fg='white',
+                     relief=GROOVE,
+                     bg='gray93',
+                     fg='black',
                      wraplength=500,
                      justify=CENTER)
         item.pack(fill=X, side=BOTTOM)
