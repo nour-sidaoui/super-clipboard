@@ -8,7 +8,7 @@ OPTIONS = {'argv_emulation': False,
 setup(
     app=APP,
     name='Super Clipboard',
-    version='0.1',
+    version='0.2',
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     license='Open source',

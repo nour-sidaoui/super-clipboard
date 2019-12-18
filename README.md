@@ -7,3 +7,4 @@ NB: Works on text only... no smileys :(
 Feel free to suggest possible improvements 
 
 ![Fast Demo](FastDemo.gif)
+![Super Clipboard logo](supercb_logo.png)
