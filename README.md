@@ -6,5 +6,5 @@ NB: Works on text only... no smileys :(
 
 Feel free to suggest possible improvements 
 
-![Fast Demo](FastDemo.gif)
+![Fast Demo](FastDemo2.gif)
 ![Super Clipboard logo](supercb_logo.png)
